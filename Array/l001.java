@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class l001 {
     public static void print(int[] arr) {
         for (int val : arr) {
@@ -19,11 +21,36 @@ class l001 {
         return -1;
     }
 
+    public static int bSearch(int[] arr, int val) {    
+        if (arr.length == 0) {
+            return -1;
+        }
+
+        int start = 0, end = arr.length; 
+        while(start <= end) {
+            int mid = (start + end) / 2;
+            if (arr[mid] == val) {
+                return mid + 1;
+            } else if ( arr[mid] < val) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+
+        return -1;
+    }
+
+    
+
     public static void main(String[] args) {
         int[] arr = { 10, 240, 450, 12, 56, 84, 13, 90, 45 };
 
-        System.out.println(lSearch(arr, 56));
+        // System.out.println(lSearch(arr, 56));
 
-        // print(arr);
+        // Arrays.sort(arr);
+        // System.out.println(bSearch(arr, 56));
+        
+        print(arr);
     }
 }
