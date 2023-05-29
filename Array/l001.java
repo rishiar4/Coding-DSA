@@ -5,6 +5,7 @@ class l001 {
         for (int val : arr) {
             System.out.print(val + " ");
         }
+        System.out.println();
     }
 
     public static int lSearch(int[] arr, int val) {
@@ -41,7 +42,17 @@ class l001 {
         return -1;
     }
 
-    
+    public static void reverse(int [] arr) {
+        if(arr.length == 0) {
+            return;
+        }
+
+        for(int i = 0; i < arr.length / 2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[arr.length - i - 1];
+            arr[arr.length - i - 1] = temp;
+        }
+    }
 
     public static void main(String[] args) {
         int[] arr = { 10, 240, 450, 12, 56, 84, 13, 90, 45 };
@@ -51,6 +62,8 @@ class l001 {
         // Arrays.sort(arr);
         // System.out.println(bSearch(arr, 56));
         
+        print(arr);
+        reverse(arr);
         print(arr);
     }
 }
