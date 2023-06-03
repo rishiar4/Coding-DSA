@@ -54,6 +54,68 @@ class l001 {
         }
     }
 
+    public static int getMax(int[] arr) {
+        if(arr.length == 0) {
+            return -1;
+        }
+
+        int maxVal = -(int)1e9;
+        for(int ele : arr) {
+            maxVal = Math.max(maxVal, ele);
+        }
+        
+        return maxVal;
+    }
+
+    public static int getMin(int[] arr) {
+        if(arr.length == 0) {
+            return -1;
+        }
+
+        int minVal = (int)1e9;
+        for(int ele : arr) {
+            minVal = Math.min(minVal, ele);
+        }
+        
+        return minVal;
+    }
+
+    public static int secondLargest(int[] nums) {
+        if(nums.length == 0) {
+            return -1;
+        }
+
+        int maxVal = -(int)1e9;
+        int secondMax = -(int)1e9;
+
+        for(int ele : nums) {
+            if(ele > maxVal) {
+                secondMax = maxVal;
+                maxVal = ele;
+            }
+        }
+
+        return secondMax;
+    }
+
+    public static int secondSmallest(int[] nums) {
+        if(nums.length == 0) {
+            return -1;
+        }
+
+        int minVal = (int)1e9;
+        int secondMin = (int)1e9;
+
+        for(int ele : nums) {
+            if(ele < minVal) {
+                secondMin = minVal;
+                minVal = ele;
+            }
+        }
+
+        return secondMin;
+    }
+
     public static void main(String[] args) {
         int[] arr = { 10, 240, 450, 12, 56, 84, 13, 90, 45 };
 
@@ -62,8 +124,13 @@ class l001 {
         // Arrays.sort(arr);
         // System.out.println(bSearch(arr, 56));
         
-        print(arr);
-        reverse(arr);
-        print(arr);
+        // print(arr);
+        // reverse(arr);
+        // print(arr);
+
+        // System.out.println(getMax(arr));
+        // System.out.println(getMin(arr));
+        // System.out.println(secondLargest(arr));
+        System.out.println(secondSmallest(arr));
     }
 }
