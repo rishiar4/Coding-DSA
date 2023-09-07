@@ -42,7 +42,19 @@ public class l001 {
     }
 
     public static int power(int a, int b) {
-        return b == 1 ? 1 : power(a, b - 1) * a;
+        return b == 0 ? 1 : power(a, b - 1) * a;
+    }
+
+    public static int powerBtr(int a, int b) {
+        if (b == 0) {
+            return 1;
+        }
+        
+        int ans = powerBtr(a, b / 2);
+
+        ans *= ans;
+
+        return b % 2 != 0 ? ans * a : ans;
     }
 
     public static void main(String[] args) {
@@ -52,5 +64,6 @@ public class l001 {
         // printOddEven(num1, num2);
         // System.out.println(fact(num2));
         System.out.println(power(10, 5));
+        System.out.println(powerBtr(10, 5));
     }
 }
